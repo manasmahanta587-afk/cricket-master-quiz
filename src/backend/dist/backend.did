@@ -1,0 +1,55 @@
+type UserProfilePublic = 
+ record {
+   lastLoginDay: int;
+   streak: nat;
+   totalCoins: Coins;
+   username: UserId;
+ };
+type UserId = text;
+type QuestionId = nat;
+type Question = 
+ record {
+   category: text;
+   correctIndex: nat;
+   difficulty: Difficulty;
+   id: QuestionId;
+   options: vec text;
+   "text": text;
+ };
+type LoginResult = 
+ record {
+   bonusCoins: Coins;
+   isNewStreak: bool;
+   profile: UserProfilePublic;
+   streakDay: nat;
+ };
+type LeaderboardEntry = 
+ record {
+   rank: nat;
+   streak: nat;
+   totalCoins: Coins;
+   username: UserId;
+ };
+type Difficulty = 
+ variant {
+   Easy;
+   Hard;
+   Medium;
+ };
+type Coins = nat;
+type AnswerResult = 
+ record {
+   bonusCoins: Coins;
+   coinsAwarded: Coins;
+   correct: bool;
+   correctIndex: nat;
+ };
+service : {
+  awardQuizCoins: (username: UserId, coins: Coins) -> ();
+  checkAnswer: (questionId: QuestionId, selectedIndex: nat, timeRemaining:
+   nat) -> (AnswerResult) query;
+  getLeaderboard: () -> (vec LeaderboardEntry) query;
+  getProfile: (username: UserId) -> (opt UserProfilePublic) query;
+  getQuestions: (difficulty: Difficulty) -> (vec Question) query;
+  loginOrRegister: (username: UserId) -> (LoginResult);
+}

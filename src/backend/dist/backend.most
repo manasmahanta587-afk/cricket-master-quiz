@@ -1,0 +1,47 @@
+// Version: 1.0.0
+type Coins__629831197 = Nat;
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Difficulty__971497521 = {#Easy; #Hard; #Medium};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type QuestionId__204821715 = Nat;
+type Question__496803352 =
+  {
+    category : Text;
+    correctIndex : Nat;
+    difficulty : Difficulty__971497521;
+    id : QuestionId__204821715;
+    options : [Text];
+    text : Text
+  };
+type Question__645493759 = Question__496803352;
+type Timestamp__301639476 = Int;
+type UserId__158757552 = Text;
+type UserProfile__1009003526 =
+  {
+    var lastLoginDay : Int;
+    var lastLoginTime : Timestamp__301639476;
+    var streak : Nat;
+    var totalCoins : Coins__629831197;
+    username : UserId__158757552
+  };
+type UserProfile__852299788 = UserProfile__1009003526;
+actor {
+  stable questions :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Question__645493759]];
+      var elementIndex : Nat__490723111
+    };
+  stable users :
+    {
+      var root : Node__46230540<UserId__158757552, UserProfile__852299788>;
+      var size : Nat__490723111
+    }
+};

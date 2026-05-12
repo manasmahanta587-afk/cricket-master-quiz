@@ -1,0 +1,26 @@
+{
+  "overview": "Cricket Master Quiz is a single-player cricket trivia game with multiple-choice questions across Easy, Medium, and Hard difficulty levels. Players earn coins for correct answers, maintain daily login streaks for bonus rewards, and compete on a global leaderboard — all with a bold dark gaming UI matching the Cricket Master branding.",
+  "features": [
+    "Cricket trivia questions about players, IPL, World Cup, and records",
+    "4-option multiple choice with 10-second timer per question",
+    "Coins reward system: Easy=10, Medium=25, Hard=50 per correct answer",
+    "Daily login streak rewards with milestone bonuses",
+    "Global leaderboard showing top 50 players",
+    "Easy, Medium, and Hard difficulty levels",
+    "Dark gaming UI with gold and red accents",
+    "Smooth transitions and animations",
+    "Mobile-first responsive design",
+    "Username entry without login"
+  ],
+  "category": "games-entertainment",
+  "tags": [
+    "cricket",
+    "quiz",
+    "trivia",
+    "gaming",
+    "leaderboard",
+    "sports",
+    "mobile"
+  ],
+  "last_updated": "2026-05-12T14:52:41.583Z"
+}

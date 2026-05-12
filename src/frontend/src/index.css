@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Bricolage Grotesque";
+    --font-body: "DM Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.75rem;
+
+    --background: 0.12 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.16 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.18 0 0;
+    --popover-foreground: 0.95 0 0;
+
+    --primary: 0.7 0.15 80;
+    --primary-foreground: 0.12 0 0;
+
+    --secondary: 0.22 0 0;
+    --secondary-foreground: 0.88 0 0;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.6 0 0;
+
+    --accent: 0.55 0.22 25;
+    --accent-foreground: 0.95 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.95 0 0;
+
+    --border: 0.22 0 0;
+    --input: 0.2 0 0;
+    --ring: 0.7 0.15 80;
+
+    --chart-1: 0.7 0.15 80;
+    --chart-2: 0.55 0.22 25;
+    --chart-3: 0.65 0.18 120;
+    --chart-4: 0.68 0.2 65;
+    --chart-5: 0.72 0.14 90;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.15 0 0;
+    --sidebar-primary: 0.35 0 0;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.95 0 0;
+    --sidebar-accent-foreground: 0.25 0 0;
+    --sidebar-border: 0.9 0 0;
+    --sidebar-ring: 0.35 0 0;
+  }
+
+  .dark {
+    --background: 0.12 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.16 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.18 0 0;
+    --popover-foreground: 0.95 0 0;
+
+    --primary: 0.7 0.15 80;
+    --primary-foreground: 0.12 0 0;
+
+    --secondary: 0.22 0 0;
+    --secondary-foreground: 0.88 0 0;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.6 0 0;
+
+    --accent: 0.55 0.22 25;
+    --accent-foreground: 0.95 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.95 0 0;
+
+    --border: 0.22 0 0;
+    --input: 0.2 0 0;
+    --ring: 0.7 0.15 80;
+
+    --chart-1: 0.7 0.15 80;
+    --chart-2: 0.55 0.22 25;
+    --chart-3: 0.65 0.18 120;
+    --chart-4: 0.68 0.2 65;
+    --chart-5: 0.72 0.14 90;
+
+    --sidebar: 0.18 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.8 0 0;
+    --sidebar-primary-foreground: 0.145 0 0;
+    --sidebar-accent: 0.22 0 0;
+    --sidebar-accent-foreground: 0.85 0 0;
+    --sidebar-border: 0.28 0 0;
+    --sidebar-ring: 0.8 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  @font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "DM Sans";
+    src: url("/assets/fonts/DMSans.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Geist Mono";
+    src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .badge-gold {
+    @apply bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-mono font-bold;
+  }
+
+  .badge-accent {
+    @apply bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-mono font-bold;
+  }
+
+  .glass {
+    @apply bg-black/20 backdrop-blur-sm border border-white/10;
+  }
+
+  .glow-gold {
+    @apply shadow-[0_0_20px_rgba(178,135,52,0.4)];
+  }
+
+  .button-gold {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-bold transition-smooth touch-target;
+  }
+  .button-gold:hover {
+    background-color: oklch(from var(--primary) l c h / 0.9);
+  }
+
+  .button-accent {
+    @apply bg-accent text-accent-foreground px-6 py-3 rounded-lg font-bold transition-smooth touch-target;
+  }
+  .button-accent:hover {
+    background-color: oklch(from var(--accent) l c h / 0.9);
+  }
+
+  .touch-target {
+    @apply min-h-[48px] min-w-[48px] flex items-center justify-center;
+  }
+
+  .option-card {
+    @apply bg-card border-2 border-transparent p-4 rounded-lg cursor-pointer transition-smooth;
+  }
+  .option-card:hover {
+    border-color: oklch(var(--primary));
+    background-color: oklch(var(--card) / 0.8);
+  }
+  .option-card:active {
+    border-color: oklch(var(--accent));
+    background-color: oklch(var(--accent) / 0.2);
+  }
+
+  .option-card.selected {
+    @apply border-accent bg-accent/10;
+  }
+
+  .pulse-accent {
+    animation: pulse-accent 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Entrance animations */
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Stagger helper */
+.stagger-1 {
+  animation-delay: 0.05s;
+}
+.stagger-2 {
+  animation-delay: 0.10s;
+}
+.stagger-3 {
+  animation-delay: 0.15s;
+}
+.stagger-4 {
+  animation-delay: 0.20s;
+}
+
+/* Timer bar */
+.timer-bar {
+  @apply h-1.5 rounded-full bg-primary transition-all duration-1000 ease-linear;
+}
+
+.timer-bar.warning {
+  @apply bg-accent;
+}
+
+/* Score shield */
+.score-shield {
+  @apply relative flex flex-col items-center justify-center;
+}
+
+/* Option letter badge */
+.option-letter {
+  @apply w-7 h-7 rounded-full flex items-center justify-center text-xs font-mono font-bold shrink-0;
+  background: oklch(var(--muted));
+  color: oklch(var(--muted-foreground));
+}
+
+.option-card:hover .option-letter,
+.option-card.selected .option-letter {
+  background: oklch(var(--primary));
+  color: oklch(var(--primary-foreground));
+}
+
+.option-card.correct .option-letter {
+  background: oklch(0.6 0.2 145);
+  color: oklch(0.12 0 0);
+}
+
+.option-card.wrong .option-letter {
+  background: oklch(var(--accent));
+  color: oklch(var(--accent-foreground));
+}
+
+.option-card.correct {
+  @apply border-[oklch(0.6_0.2_145)] bg-[oklch(0.6_0.2_145/0.15)];
+}
+
+.option-card.wrong {
+  @apply border-accent bg-accent/10;
+}
+
+/* Coin burst animation */
+@keyframes float-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+.float-up {
+  animation: float-up 0.7s ease-out forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--border));
+  border-radius: 9999px;
+}
