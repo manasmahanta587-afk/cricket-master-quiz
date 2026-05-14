@@ -18,8 +18,9 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install pnpm
+  run: npm install -g pnpm
+
 
       - name: Build APK
         run: npm run build
